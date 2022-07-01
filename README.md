@@ -6,5 +6,5 @@
 
 ## Arquitetura
 
-![context](docs/Arquitetura-Event-Process.svg)
+![context](docs/Arquitetura-Event-Process.png)
 
