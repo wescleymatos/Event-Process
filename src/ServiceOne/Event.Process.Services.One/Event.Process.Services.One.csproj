@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Event-Process\src\ServiceOne\Event.Process.Services.One.Contracts\Event.Process.Services.One.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
