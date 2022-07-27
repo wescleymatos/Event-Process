@@ -38,16 +38,22 @@ namespace Event.Process.Services.One.Controllers
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: QUEUE, durable: true, exclusive: false, autoDelete: false, arguments: null);
-                    channel.ExchangeDeclare(exchange: EXCHANGE, type: "fanout", arguments: null);
-                    channel.QueueBind(queue: QUEUE, exchange: EXCHANGE, routingKey: "");
+                    //channel.QueueDeclare(queue: QUEUE, durable: true, exclusive: false, autoDelete: false, arguments: null);
+                    //channel.ExchangeDeclare(exchange: EXCHANGE, type: "fanout", arguments: null);
+                    //channel.QueueBind(queue: QUEUE, exchange: EXCHANGE, routingKey: "");
                     var dto = new Dto
                     {
                         Id = Guid.NewGuid(),
                         Name = "Nome do Cliente",
                         Email = "email@teste.com"
                     };
-                    var stringfy = JsonSerializer.Serialize(dto);
+
+                    var eventDto = new EventDto
+                    {
+                        Payload = dto
+                    };
+
+                    var stringfy = JsonSerializer.Serialize(eventDto);
                     var byteArray = Encoding.UTF8.GetBytes(stringfy);
 
                     channel.BasicPublish(exchange: EXCHANGE, routingKey: "", basicProperties: null, body: byteArray);
