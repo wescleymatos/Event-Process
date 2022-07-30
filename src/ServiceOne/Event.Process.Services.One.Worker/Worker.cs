@@ -13,8 +13,9 @@ namespace Event.Process.Services.One.Worker
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(1000, stoppingToken);
+                //_logger.LogInformation("2 - Worker running at: {time}", DateTimeOffset.Now);
+
+                await Task.Delay(10000, stoppingToken);
             }
         }
     }

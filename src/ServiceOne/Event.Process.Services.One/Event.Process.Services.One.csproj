@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.0.5" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.5" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Event-Process\src\ServiceOne\Event.Process.Services.One.Contracts\Event.Process.Services.One.Contracts.csproj" />
+    <ProjectReference Include="..\Event.Process.Services.One.Consumer\Event.Process.Services.One.Consumer.csproj" />
   </ItemGroup>
 
 </Project>

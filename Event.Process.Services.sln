@@ -3,21 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Process.Services.One", "src\ServiceOne\Event.Process.Services.One\Event.Process.Services.One.csproj", "{13E544E0-6503-4904-949A-C96984E3E0FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event.Process.Services.One", "src\ServiceOne\Event.Process.Services.One\Event.Process.Services.One.csproj", "{13E544E0-6503-4904-949A-C96984E3E0FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Process.Services.One.Worker", "src\ServiceOne\Event.Process.Services.One.Worker\Event.Process.Services.One.Worker.csproj", "{A346C64F-9030-463B-9823-85047429C3C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event.Process.Services.One.Worker", "src\ServiceOne\Event.Process.Services.One.Worker\Event.Process.Services.One.Worker.csproj", "{A346C64F-9030-463B-9823-85047429C3C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceOne", "ServiceOne", "{BCA33556-B8ED-44D9-AB94-732F15054041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Process.Services.Two", "src\ServiceTwo\Event.Process.Services.Two\Event.Process.Services.Two.csproj", "{8C599403-07F6-484B-958F-0CD0C12DE6ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event.Process.Services.Two", "src\ServiceTwo\Event.Process.Services.Two\Event.Process.Services.Two.csproj", "{8C599403-07F6-484B-958F-0CD0C12DE6ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Process.Services.Two.Worker", "src\ServiceTwo\Event.Process.Services.Two.Worker\Event.Process.Services.Two.Worker.csproj", "{B88CCD9B-E21B-4091-9FB4-2F30538E49FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event.Process.Services.Two.Worker", "src\ServiceTwo\Event.Process.Services.Two.Worker\Event.Process.Services.Two.Worker.csproj", "{B88CCD9B-E21B-4091-9FB4-2F30538E49FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceTwo", "ServiceTwo", "{AB7C381A-A71B-4D44-B1D5-A185FF871FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Process.Services.Main", "src\ServiceMain\Event.Process.Services.Main\Event.Process.Services.Main.csproj", "{AE5DC783-12CC-48F3-A74E-D705F3D1C51D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event.Process.Services.Main", "src\ServiceMain\Event.Process.Services.Main\Event.Process.Services.Main.csproj", "{AE5DC783-12CC-48F3-A74E-D705F3D1C51D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventProcess", "EventProcess", "{CEB6D7DB-4295-43FA-8CAF-42DB3E57D8DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event.Process.Services.One.Contracts", "..\Event-Process\src\ServiceOne\Event.Process.Services.One.Contracts\Event.Process.Services.One.Contracts.csproj", "{5B2D533B-9290-4625-9C13-9CF96F23A3AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event.Process.Services.One.Consumer", "src\ServiceOne\Event.Process.Services.One.Consumer\Event.Process.Services.One.Consumer.csproj", "{CC3431F6-C13E-46C4-BE09-01631EB5CA46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{AE5DC783-12CC-48F3-A74E-D705F3D1C51D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE5DC783-12CC-48F3-A74E-D705F3D1C51D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE5DC783-12CC-48F3-A74E-D705F3D1C51D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2D533B-9290-4625-9C13-9CF96F23A3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2D533B-9290-4625-9C13-9CF96F23A3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2D533B-9290-4625-9C13-9CF96F23A3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2D533B-9290-4625-9C13-9CF96F23A3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3431F6-C13E-46C4-BE09-01631EB5CA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3431F6-C13E-46C4-BE09-01631EB5CA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3431F6-C13E-46C4-BE09-01631EB5CA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3431F6-C13E-46C4-BE09-01631EB5CA46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +67,8 @@ Global
 		{8C599403-07F6-484B-958F-0CD0C12DE6ED} = {AB7C381A-A71B-4D44-B1D5-A185FF871FC3}
 		{B88CCD9B-E21B-4091-9FB4-2F30538E49FF} = {AB7C381A-A71B-4D44-B1D5-A185FF871FC3}
 		{AE5DC783-12CC-48F3-A74E-D705F3D1C51D} = {CEB6D7DB-4295-43FA-8CAF-42DB3E57D8DD}
+		{5B2D533B-9290-4625-9C13-9CF96F23A3AD} = {BCA33556-B8ED-44D9-AB94-732F15054041}
+		{CC3431F6-C13E-46C4-BE09-01631EB5CA46} = {BCA33556-B8ED-44D9-AB94-732F15054041}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9A29A84-2078-4621-8108-830BEB4D08CC}
