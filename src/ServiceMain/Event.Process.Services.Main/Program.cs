@@ -1,3 +1,4 @@
+using Event.Process.Services.Main.Contracts;
 using Event.Process.Services.Main.Extensions;
 using Event.Process.Services.Main.RabbitMQ;
 using RabbitMQ.Client;
@@ -36,6 +37,8 @@ builder.Services.Configure<RouteOptions>(options =>
 {
     options.LowercaseUrls = true;
 });
+
+builder.Services.Configure<ServicesMappingConfiguration>(builder.Configuration.GetSection("ServicesMappingConfiguration"));
 
 /* -------------------------------- */
 
