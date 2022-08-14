@@ -293,3 +293,7 @@ appsettings.*.json
 
 # utils
 .config/
+
+# Watchdog Logs
+watchlogs.*
+watchlogs-*.*

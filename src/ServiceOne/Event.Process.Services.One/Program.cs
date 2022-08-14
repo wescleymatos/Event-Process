@@ -1,11 +1,14 @@
 using Event.Process.Services.One.Consumer;
 using MassTransit;
+using WatchDog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -18,7 +21,8 @@ builder.Services.AddMassTransit(x =>
     x.SetKebabCaseEndpointNameFormatter();
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host(new Uri("rabbitmq://localhost/test"), h => {
+        cfg.Host(new Uri("rabbitmq://localhost/test"), h =>
+        {
             h.Username("guest");
             h.Password("guest");
         });
@@ -27,7 +31,15 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
+builder.Services.AddWatchDogServices();
+
 var app = builder.Build();
+
+app.UseWatchDog(opt =>
+{
+    opt.WatchPageUsername = "admin";
+    opt.WatchPagePassword = "1234";
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
