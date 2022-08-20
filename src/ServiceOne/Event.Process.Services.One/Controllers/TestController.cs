@@ -15,14 +15,16 @@ namespace Event.Process.Services.One.Controllers
 
         private readonly ConnectionFactory _connectionFactory;
         private readonly ILogger<TestController> _logger;
+        private readonly ILog _log;
 
-        public TestController(ILogger<TestController> logger)
+        public TestController(ILogger<TestController> logger, ILog log)
         {
             _logger = logger;
             _connectionFactory = new ConnectionFactory
             {
                 Uri = new Uri("amqp://guest:guest@localhost:5672/test")
             };
+            _log = log;
         }
 
         [HttpGet("", Name = "GetSuccessAsync")]
@@ -66,6 +68,10 @@ namespace Event.Process.Services.One.Controllers
         [HttpPost("process-error", Name = "ProcessErrorAsync")]
         public async Task<IActionResult> ProcessErrorAsync()
         {
+            _log.Log("...TestGet Started... ProcessErrorAsync");
+
+            //throw new Exception("Teste de exception");
+
             return await Task.FromResult(BadRequest());
         }
     }
