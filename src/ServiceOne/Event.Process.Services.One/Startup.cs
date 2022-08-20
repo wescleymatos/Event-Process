@@ -1,6 +1,4 @@
-﻿using Event.Process.Services.One.Consumer;
-using Event.Process.Services.One.Extensions;
-using MassTransit;
+﻿using Event.Process.Services.One.Extensions;
 using WatchDog;
 
 namespace Event.Process.Services.One
@@ -19,48 +17,35 @@ namespace Event.Process.Services.One
             services.AddControllers();
 
             services.AddEndpointsApiExplorer();
+
             services.AddSwaggerGen();
 
-            //services.AddMassTransit(x =>
-            //{
-            //    //x.AddConsumer<TestConsumer>(typeof(TestConsumerDefinition));
-            //    x.AddConsumer<TestEventConsumer>(typeof(TestEventConsumerDefinition));
+            services.AddLogging(loggingBuilder => loggingBuilder.AddSeq(Configuration.GetSection("Seq")));
 
-            //    x.SetKebabCaseEndpointNameFormatter();
-            //    x.UsingRabbitMq((context, cfg) =>
-            //    {
-            //        cfg.Host(new Uri("rabbitmq://localhost/test"), h =>
-            //        {
-            //            h.Username("guest");
-            //            h.Password("guest");
-            //        });
-
-            //        cfg.ConfigureEndpoints(context);
-            //    });
-            //});
             services.AddRabbitmq();
-            services.AddDependencyInjection();
 
-            // Add WatchDog Service
             services.AddWatchDogServices();
+
+            services.AddDependencyInjection();
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
             // Configure the HTTP request pipeline.
-            //if (env.IsDevelopment())
-            //{
+            if (env.IsDevelopment())
+            {
+                // Swagger
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            //}
 
-            // Configure WatchDog
-            app.UseWatchDogExceptionLogger();
-            app.UseWatchDog(opt =>
-            {
-                opt.WatchPageUsername = "admin";
-                opt.WatchPagePassword = "1234";
-            });
+                // Configure WatchDog
+                app.UseWatchDogExceptionLogger();
+                app.UseWatchDog(opt =>
+                {
+                    opt.WatchPageUsername = "admin";
+                    opt.WatchPagePassword = "1234";
+                });
+            }
 
             app.UseHttpsRedirection();
 

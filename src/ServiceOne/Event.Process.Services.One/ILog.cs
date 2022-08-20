@@ -1,7 +1,7 @@
 ﻿namespace Event.Process.Services.One
 {
-    public interface ILog
+    public interface ILog<T> 
     {
-        void Log(string message);
+        void Log(string message, params object?[] args);
     }
 }

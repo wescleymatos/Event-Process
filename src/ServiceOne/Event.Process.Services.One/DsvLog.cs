@@ -2,11 +2,12 @@
 
 namespace Event.Process.Services.One
 {
-    public class DsvLog : ILog
+    public class DsvLog<T> : ILog<T>
     {
-        public void Log(string message)
+        public void Log(string message, params object?[] args)
         {
-            WatchLogger.Log(message);
+            string format = string.Format(message, args);
+            WatchLogger.Log(format);
         }
     }
 }

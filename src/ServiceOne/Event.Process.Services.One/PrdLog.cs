@@ -1,12 +1,17 @@
-﻿using WatchDog;
-
-namespace Event.Process.Services.One
+﻿namespace Event.Process.Services.One
 {
-    public class PrdLog : ILog
+    public class PrdLog<T> : ILog<T>
     {
-        public void Log(string message)
+        private readonly ILogger<T> _logger;
+
+        public PrdLog(ILogger<T> logger)
         {
-            WatchLogger.Log("Mensagem de PRD");
+            _logger = logger;
+        }
+
+        public void Log(string message, params object?[] args)
+        {
+            _logger.LogInformation(message, args);
         }
     }
 }

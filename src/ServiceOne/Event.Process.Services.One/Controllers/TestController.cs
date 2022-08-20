@@ -14,12 +14,10 @@ namespace Event.Process.Services.One.Controllers
         private const string EXCHANGE = "service-one-queue";
 
         private readonly ConnectionFactory _connectionFactory;
-        private readonly ILogger<TestController> _logger;
-        private readonly ILog _log;
+        private readonly ILog<TestController> _log;
 
-        public TestController(ILogger<TestController> logger, ILog log)
+        public TestController(ILog<TestController> log)
         {
-            _logger = logger;
             _connectionFactory = new ConnectionFactory
             {
                 Uri = new Uri("amqp://guest:guest@localhost:5672/test")
@@ -68,9 +66,9 @@ namespace Event.Process.Services.One.Controllers
         [HttpPost("process-error", Name = "ProcessErrorAsync")]
         public async Task<IActionResult> ProcessErrorAsync()
         {
-            _log.Log("...TestGet Started... ProcessErrorAsync");
+            Random rnd = new();
 
-            //throw new Exception("Teste de exception");
+            _log.Log("Teste de log n°: {0}", rnd.Next());
 
             return await Task.FromResult(BadRequest());
         }
